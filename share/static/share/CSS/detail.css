@@ -1,0 +1,37 @@
+.upload-file-info {
+    height: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    padding-top:3%;
+}
+
+.info-item {
+    border: 1px solid grey;
+    border-radius: 15px;
+    text-align: center;
+    margin: 1%;
+    padding:3%;
+    font-size: 20px;
+}
+
+.download-link {
+    color: white;
+}
+
+.download-link:hover {
+    color: #fff09b;
+}
+
+/* The alert message box */
+.alert {
+  padding: 20px;
+  margin: 0 20%;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+

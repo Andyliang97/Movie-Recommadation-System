@@ -1,0 +1,48 @@
+{% extends './base.html' %}
+{% block content%}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'share/CSS/detail.css' %}">
+{% if messages %}
+        {% for message in messages %}
+            <div class="alert">
+            {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+<table class="table text-white d-flex justify-content-center align-items-center mt-5">
+    <tbody>
+        <tr>
+          <th>File Name</th>
+            <td>{{videoinfo.file_name}}</td>
+        </tr>
+        <tr>
+          <th>Upload Time</th>
+            <td>{{videoinfo.upload_time}}</td>
+        </tr>
+        <tr>
+          <th>File Size</th>
+            <td>{{videoinfo.file_size}} KB</td>
+        </tr>
+        <tr>
+        <tr>
+          <th>User IP</th>
+            <td>{{videoinfo.upload_ip}}</td>
+        </tr>
+          <th>#Download</th>
+            <td>{{videoinfo.download_count}}</td>
+        </tr>
+        <tr>
+          <th>Download Path</th>
+            <td><a class="download-link" href="{% url 'share:download' videoinfo.id %}">
+                {{videoinfo.file_name}}
+            </a></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

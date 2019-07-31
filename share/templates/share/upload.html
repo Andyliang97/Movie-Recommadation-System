@@ -1,0 +1,51 @@
+{% block content%}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'share/CSS/upload.css' %}">
+<nav class='nav-container'>
+    {% if user.is_authenticated %}
+    <h1 class="welcome-msg">Welcome, {{user.username}}</h1>
+    <a class='btn btn-outline-info  mr-2 btn-sm' href="{% url 'share:index' %}">Main Page</a>
+    <a class='btn btn-outline-info  mr-2 btn-sm' href="{% url 'users:logout' %}">Logout</a>
+    <a class='btn btn-outline-info  mr-2 btn-sm' href="{% url 'users:profile' %}">Profile</a>
+    <form class="upload-form" enctype="multipart/form-data" action="{% url 'share:upload'%}" method="post">
+        {% csrf_token %}
+        <input type="file" id="upload-input" name="file" hidden="hidden" />
+        <button type="button" class="btn btn-outline-info mr-2 btn-sm upload-button">Upload</button>
+    </form>
+    {% else %}
+    <a class='btn btn-outline-info  mr-2 btn-sm' href="{% url 'share:index' %}">Main Page</a>
+    <a class='btn btn-outline-info  mr-2 btn-sm' href="{% url 'users:login' %}">Login</a>
+    <a class='btn btn-outline-info  mr-2 btn-sm' href="{% url 'users:register' %}">Register</a>
+    {% endif %}
+</nav>
+
+{% load static %}
+<script type="text/javascript" src="{% static 'share/JavaScript/upload.js' %}"></script>
+<!--<script type="text/javascript">
+    const upload = (file) => {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+        fetch('{% url 'share:upload'%}', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+            }
+        })
+        .catch(error => console.log(error));
+    };
+
+    document.querySelector(".upload-button").addEventListener("click", function() {
+        console.log('clicked')
+        document.getElementById("upload-input").click();
+    });
+
+    const input = document.getElementById("upload-input")
+    input.onchange = function() {
+        upload(input.files[0])
+    };
+</script>-->
+{% endblock %}

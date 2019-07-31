@@ -1,0 +1,73 @@
+.file-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    word-break: break-all;
+}
+
+.file-title, .file-content {
+    display: flex;
+    justify-content: flex-start;
+    width: 85%;
+    background: rgba(255,255,255,.2);
+    padding: 6px 0px;
+    border-bottom: 1px solid grey;
+    font-size: 13px;
+}
+
+.file-id {
+    width: 5%;
+    padding-left: 1%;
+}
+
+.file-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+.file-name {
+    font-weight: bold;
+    width:24%;
+    padding-left:1%;
+
+}
+
+.file-size {
+    width:10%;
+
+}
+
+.file-download-count {
+    width:8%;
+
+}
+
+.file-date {
+    width:16%;
+
+}
+
+.file-link {
+    width:28%;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1%;
+}
+
+.file-download-link, file-button {
+    width: 8%;
+    font-size: 11px;
+    padding: 1px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-right: 1%;
+    font-weight: bold;
+}
+
+
+
